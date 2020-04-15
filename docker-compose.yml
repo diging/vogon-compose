@@ -21,7 +21,7 @@ services:
     networks:
       - backend
     ports:
-      - "5433:5432"
+      - "5444:5432"
     deploy:
       placement:
         constraints: [node.role == manager]

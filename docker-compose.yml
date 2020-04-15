@@ -12,8 +12,6 @@ services:
       - "8000:8000"
     networks:
       - backend
-    env_file:
-      - ./vogon-backend/.env_secrets
     deploy:
       restart_policy:
         condition: on-failure
@@ -30,26 +28,10 @@ services:
       placement:
         constraints: [node.role == manager]
 
-  vogon-client:
-    build:
-        context: ./vogon-client
-        dockerfile: Dockerfile
-    networks:
-      - backend
-    env_file:
-      - ./vogon-client/.env_secrets
-    volumes:
-      - vogon-client-vol:/dist
-    deploy:
-      restart_policy:
-        condition: on-failure
-
 networks:
   frontend:
   backend:
 
 volumes:
-  vogon-client-vol:
-    external: true
   db-data:
   log-files:

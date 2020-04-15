@@ -2,7 +2,7 @@ version: "3.7"
 services:
 
   vogon:
-	image: digingasu/vogon-backend:latest
+    image: digingasu/vogon-backend:staging
     command: python manage.py migrate
     volumes:
       - log-files:/usr/src/app/logs

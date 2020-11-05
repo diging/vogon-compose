@@ -10,9 +10,6 @@ services:
       - "8000:8000"
     networks:
       - backend
-    deploy:
-      restart_policy:
-        condition: on-failure
 
   db:
     image: postgres:11.6
@@ -22,10 +19,6 @@ services:
       - backend
     ports:
       - "5444:5432"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
-
 networks:
   frontend:
   backend:

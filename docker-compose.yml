@@ -1,28 +1,28 @@
 version: "3.7"
 services:
-
   vogon:
     image: digingasu/vogon-backend:staging
-    command: python manage.py migrate
     volumes:
       - log-files:/usr/src/app/logs
+      - vogon-data:/usr/src/app/data
     ports:
       - "8000:8000"
     networks:
       - backend
+    deploy:
+      restart_policy:
+        condition: on-failure
 
   db:
     image: postgres:11.6
     volumes:
       - db-data:/var/lib/postgresql/data
-    networks:
-      - backend
     ports:
       - "5444:5432"
 networks:
   frontend:
   backend:
-
-volumes:
-  db-data:
-  log-files:
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

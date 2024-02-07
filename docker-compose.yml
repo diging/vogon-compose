@@ -1,7 +1,9 @@
 version: "3.7"
 services:
   vogon:
-    image: digingasu/vogon-backend:staging
+    build:
+        context: .
+        dockerfile: Dockerfile-backend
     volumes:
       - log-files:/usr/src/app/logs
       - vogon-data:/usr/src/app/data

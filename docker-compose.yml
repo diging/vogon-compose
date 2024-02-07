@@ -14,7 +14,7 @@ services:
         condition: on-failure
     volumes:
       - /home/vogon-web/backend/logs:/usr/src/app/logs
-      - /home/vogon-web/backend/code:/usr/src/app/host
+      - /home/vogon-web/backend/code/vogon-web:/usr/src/app/host
   db:
     image: postgres:11.6
     ports:

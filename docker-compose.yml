@@ -4,9 +4,6 @@ services:
     build:
         context: .
         dockerfile: Dockerfile-backend
-    volumes:
-      - log-files:/usr/src/app/logs
-      - vogon-data:/usr/src/app/data
     ports:
       - "8001:8000"
     deploy:

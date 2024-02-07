@@ -13,8 +13,8 @@ services:
       restart_policy:
         condition: on-failure
     volumes:
-      - /home/tomcat/vogon-web/backend/logs:/usr/src/app/logs
-      - /home/tomcat/vogon-web/backend/code:/usr/src/app/host
+      - /home/vogon-web/backend/logs:/usr/src/app/logs
+      - /home/vogon-web/backend/code:/usr/src/app/host
   db:
     image: postgres:11.6
     ports:
@@ -24,5 +24,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
-      - /home/tomcat/vogon-web/backend/db:/var/lib/postgresql/data
+      - /home/vogon-web/backend/db:/var/lib/postgresql/data
 
